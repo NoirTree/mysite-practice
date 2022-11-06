@@ -7,27 +7,42 @@ const App = () => {
   // const part3 = "State of a component";
   // const exercises3 = 14;
 
-  // Object
-  const part1 = {
-    name: "Fundamentals of React",
-    exercises: 10,
-  };
-  const part2 = {
-    name: "Using props to pass data",
-    exercises: 7,
-  };
-  const part3 = {
-    name: "State of a component",
-    exercises: 14,
-  };
+  // // Object
+  // const part1 = {
+  //   name: "Fundamentals of React",
+  //   exercises: 10,
+  // };
+  // const part2 = {
+  //   name: "Using props to pass data",
+  //   exercises: 7,
+  // };
+  // const part3 = {
+  //   name: "State of a component",
+  //   exercises: 14,
+  // };
+
+  // array
+  const parts = [
+    {
+      name: "Fundamentals of React",
+      exercises: 10,
+    },
+    {
+      name: "Using props to pass data",
+      exercises: 7,
+    },
+    {
+      name: "State of a component",
+      exercises: 14,
+    },
+  ];
 
   return (
     <>
-      {" "}
       {/* 省略了div*/}
       <Header name={course} />
-      <Content part1={part1} part2={part2} part3={part3} />
-      <Total total={part1.exercises + part2.exercises + part3.exercises} />
+      <Content part1={parts[0]} part2={parts[1]} part3={parts[2]} />
+      <Total total={parts[0].exercises + parts[1].exercises + parts[2].exercises} />
     </>
   );
 };
