@@ -1,25 +1,5 @@
 const App = () => {
   const course = "Half Stack application development";
-  // const part1 = "Fundamentals of React";
-  // const exercises1 = 10;
-  // const part2 = "Using props to pass data";
-  // const exercises2 = 7;
-  // const part3 = "State of a component";
-  // const exercises3 = 14;
-
-  // // Object
-  // const part1 = {
-  //   name: "Fundamentals of React",
-  //   exercises: 10,
-  // };
-  // const part2 = {
-  //   name: "Using props to pass data",
-  //   exercises: 7,
-  // };
-  // const part3 = {
-  //   name: "State of a component",
-  //   exercises: 14,
-  // };
 
   // array
   const parts = [
@@ -41,8 +21,8 @@ const App = () => {
     <>
       {/* 省略了div*/}
       <Header name={course} />
-      <Content part1={parts[0]} part2={parts[1]} part3={parts[2]} />
-      <Total total={parts[0].exercises + parts[1].exercises + parts[2].exercises} />
+      <Content part={parts} />
+      <Total part={parts} />
     </>
   );
 };
@@ -54,12 +34,13 @@ const Header = (props) => (
 );
 
 const Content = (props) => {
-  // console.log(props);
+  console.log(props);
   return (
     <>
-      <Part part={props.part1} />
-      <Part part={props.part2} />
-      <Part part={props.part3} />
+      {/* 注意：此处为props.part而不是props.parts */}
+      <Part part={props.part[0]} />
+      <Part part={props.part[1]} />
+      <Part part={props.part[2]} />
     </>
   );
 };
@@ -77,9 +58,12 @@ const Part = (props) => {
 
 const Total = (props) => (
   <>
-    <p>Number of exercises {props.total}</p>
-    {/* 通过传入的参数名来access参数。即使只有一个参数total，也需要props.total */}
-    {/* React JSX里面注释，需要用{}括起来*/}
+    <p>
+      Number of exercises{" "}
+      {props.part[0].exercises +
+        props.part[1].exercises +
+        props.part[2].exercises}
+    </p>
   </>
 );
 
